@@ -69,6 +69,11 @@ public class GestionnaireCompte {
         return em.merge(compteBancaire);
     }
 
+    @Transactional
+    public void delete(CompteBancaire compte) {
+        em.remove(em.merge(compte));
+    }
+
     public CompteBancaire findById(Long id) {
         return em.find(CompteBancaire.class, id);
     }

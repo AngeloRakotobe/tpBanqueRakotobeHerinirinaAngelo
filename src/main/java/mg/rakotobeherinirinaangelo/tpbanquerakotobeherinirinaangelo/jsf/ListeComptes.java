@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.entity.CompteBancaire;
 import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.service.GestionnaireCompte;
+import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.util.Util;
 
 /**
  *
@@ -36,5 +37,13 @@ public class ListeComptes implements Serializable {
             compteBancaireList = gestionnaireCompte.getAllComptes();
         }
         return compteBancaireList;
+    }
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.delete(compteBancaire);
+        Util.addFlashInfoMessage("Le compte de "
+                + compteBancaire.getNom()
+                + " a été supprimé");
+        return "listeComptes?faces-redirect=true";
     }
 }
