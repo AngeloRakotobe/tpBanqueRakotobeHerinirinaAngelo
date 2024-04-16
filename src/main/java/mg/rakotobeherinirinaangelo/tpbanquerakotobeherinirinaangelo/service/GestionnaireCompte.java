@@ -5,6 +5,7 @@
 package mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.service;
 
 import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
@@ -33,7 +34,7 @@ import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.entity.Compt
             "driverClass=com.mysql.cj.jdbc.Driver"
         }
 )
-@Dependent
+@ApplicationScoped
 public class GestionnaireCompte {
 
     @PersistenceContext(unitName = "banquePU")
