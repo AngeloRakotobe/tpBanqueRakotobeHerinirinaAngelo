@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/template/template_defaut.xhtml">
+            
+             <ui:define name="metadata">
+                <f:metadata>  
+                    <f:viewParam name="idCompte" value="#{updateCompte.idCompte}"  
+                                 required="true"/>  
+                    <f:viewAction action="#{updateCompte.loadCompte}"/>  
+                </f:metadata>
+            </ui:define>
+
+            <ui:define name="top">
+                Modifier le nom du possesseur d'un compte
+            </ui:define>
+
+            <ui:define name="content">
+                <h1> Modification du compte de : #{updateCompte.compte.nom} / ID:#{updateCompte.compte.id}</h1>
+                 <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="Nom du titulaire du compte :" for="nomCompte"/>
+                        <h:inputText id="nom" size="30" value="#{updateCompte.nouveauNom}"
+                                     required="true"
+                                     converterMessage="Le nom du compte est requis"/>
+                        <h:message for="nom"/>
+                    </h:panelGrid>
+                    <h:commandButton action="#{updateCompte.modifierCompte()}"
+                                     value="Valider"/>
+                </h:form>
+                <h:messages/>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

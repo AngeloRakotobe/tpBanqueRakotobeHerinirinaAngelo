@@ -57,9 +57,16 @@
                             <h:outputText value="#{item.solde}" />
                         </p:column>
 
-                        <p:column width="10">
+                        <p:column>
                             <f:facet name="header">
-                                <h:outputText value="Opérations"/>
+                                <h:outputText value="Modifier"/>
+                            </f:facet>
+                            <h:link outcome="updateCompte?idCompte=#{item.id}" value="Modifier"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Supprimer"/>
                             </f:facet>
                             <h:commandLink action="#{listeComptes.supprimerCompte(item)}"
                                            title="Supprimer le compte de #{item.nom}" >

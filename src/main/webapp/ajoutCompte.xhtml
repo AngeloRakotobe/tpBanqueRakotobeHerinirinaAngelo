@@ -9,7 +9,7 @@
         <ui:composition template="./WEB-INF/template/template_defaut.xhtml">
 
             <ui:define name="top">
-                 Ajouter un compte
+                Ajouter un compte
             </ui:define>
 
             <ui:define name="content">
@@ -19,10 +19,10 @@
                         <h:inputText id="nom" size="3" value="#{ajoutCompte.nom}"
                                      required="true"
                                      converterMessage="le nom est requis"/>
-                        <h:message for="source"/>
+                        <h:message for="nom"/>
                     </h:panelGrid>
                     <h:panelGrid columns="3">
-                         <h:outputLabel value="Solde inital :" for="solde"/>
+                        <h:outputLabel value="Solde inital :" for="solde"/>
                         <h:inputText id="solde" size="3" value="#{ajoutCompte.solde}"
                                      required="true"
                                      converterMessage="Le solde est un entier"/>
