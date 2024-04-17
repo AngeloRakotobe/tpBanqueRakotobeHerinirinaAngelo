@@ -25,23 +25,14 @@ public class UpdateCompte implements Serializable {
 
     private Long idCompte;
     private CompteBancaire compte;
-    private String ancienNom;
-    private String nouveauNom;
+    private String nomCompte;
 
-    public String getAncienNom() {
-        return ancienNom;
+    public String getNomCompte() {
+        return nomCompte;
     }
 
-    public void setAncienNom(String ancienNom) {
-        this.ancienNom = ancienNom;
-    }
-
-    public String getNouveauNom() {
-        return nouveauNom;
-    }
-
-    public void setNouveauNom(String nouveauNom) {
-        this.nouveauNom = nouveauNom;
+    public void setNomCompte(String nomCompte) {
+        this.nomCompte = nomCompte;
     }
 
     public Long getIdCompte() {
@@ -67,18 +58,19 @@ public class UpdateCompte implements Serializable {
     }
 
     public void loadCompte() {
-        this.compte = gestionnaireCompte.findById(idCompte);
-        ancienNom= compte.getNom();
+        compte = gestionnaireCompte.findById(idCompte);
+        nomCompte = compte.getNom();
     }
 
     public String modifierCompte() {
-        compte.setNom(nouveauNom);
+        String ancienNom = compte.getNom();
+        compte.setNom(nomCompte);
         gestionnaireCompte.update(compte);
         Util.addFlashInfoMessage("Modifications enregistrées");
         Util.addFlashInfoMessage("Le nom "
-                + this.ancienNom
+                + ancienNom
                 + " changé en "
-                + this.nouveauNom);
+                + compte.getNom());
         return "listeComptes?faces-redirect=true";
     }
 }

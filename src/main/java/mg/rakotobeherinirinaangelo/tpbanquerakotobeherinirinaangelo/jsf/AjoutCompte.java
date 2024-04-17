@@ -5,7 +5,7 @@
 package mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.jsf;
 
 import jakarta.inject.Named;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.PositiveOrZero;
 import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.entity.CompteBancaire;
@@ -17,7 +17,7 @@ import mg.rakotobeherinirinaangelo.tpbanquerakotobeherinirinaangelo.util.Util;
  * @author AngeloRakotobe
  */
 @Named(value = "ajoutCompte")
-@ApplicationScoped
+@RequestScoped
 public class AjoutCompte {
 
     @Inject

@@ -27,3 +27,7 @@ a:link:hover, a:visited:hover  {
   font-weight : bold;
   text-decoration : underline;
 }
+.small-icon {
+    width: 30px; /* ajustez la taille en fonction de vos besoins */
+    height: 30px; /* ajustez la taille en fonction de vos besoins */
+}
